@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+    	* { font-family: Calibri; } 
+        table { width: 100%; }
+        table, th, td { border: solid 1px #DDD;
+            border-collapse: collapse; padding: 2px 3px; text-align: center;
+        }
+        form{
+        	border:  1px solid gray;
+        	padding: 10px;
+        	margin-bottom: 20px;
+        }
+        form,h1{
+        	display: block;
+        	text-align: center;
+
+        }
+
+        form div{
+        	display: flex;
+        	width: 25%;
+        	justify-content: space-between;        	
+        	margin: 10px auto;
+        }
+        form div:last-child{
+        	justify-content: center;
+        }
+
+        form div:last-child button{
+        	margin-right: 20px;
+        	font-size: 20px;
+        	font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+	<section>
+		<h1>To do Validation</h1>
+
+	</section>
+	<form name="toDoForm">
+		<div><label>Name : </label><input placeholder="Name 3 to 20 charecters" name="name" id="Name" type="text" minlength="3" maxlength="20" required /> </div>
+		<div><label>EmailID : </label><input name="email" placeholder="Email" id="email" type="email" required /> </div>
+		<div><label>Mobile Number : </label><input name="contact" placeholder="Only numbers" id="contact" type="text"  maxlength="10" required="0-9" /> </div>
+		<div><label>Project Name : </label><input placeholder="Project name 3 to 30 charecters" name="project" id="project" type="text" minlength="3" maxlength="30" required /> </div>
+		<div><label>Task Description : </label><input name= "task" placeholder="Description 10 to 300 charecters" id="task" type="text" minlength="10" maxlength="300" required /> </div>
+		<div><label>Start Date : </label><input name="sdate" id="startdate" type="date" required /></div>
+		<div><label>End Date : </label><input name="edate" id="enddate" type="date" required=/></div>
+		<div><label>Task Status: </label> Planned <input id="planned" value="Planned" type="radio" required name="status"/> Inprogress <input type="radio" id="inprogress" value="In Progress" name="status"> Done <input id="planned" value="Done" type="radio" required name="status"/></div>
+		<div>
+			<button  name="" id="save" onclick="validateToDoForm(event)">Save</button> 
+			<button id="clear" onclick="resetFormDate(event)"> Reset</button>
+		</div>
+	</form>
+	
+<section >
+	<table id="toDoTable">
+		<thead>
+			<tr>
+				<th> S.NO </th>
+				<th> Name </th>
+				<th> Email </th>
+				<th> Mobile </th>
+				<th> Project </th>
+				<th> Status </th>
+				<th> Task Description </th>
+				<th> Start Date </th>
+				<th> End Date </th>
+				<th> Update/Delete </th>
+			</tr>
+		</thead>
+		<tbody id="table-body">
+			<tr></tr>
+		</tbody>
+	</table>
+</section>
+<script type="text/javascript">
+	var todoArr = [],selectedRec = {};
+	function validateToDoForm(e,index){
+		e.preventDefault();
+		 e.stopPropagation();
+		let isValid =  false;
+		let nameInput = document.forms["toDoForm"]["name"];
+		let emailInput = document.forms["toDoForm"]["email"];
+		let taskInput = document.forms["toDoForm"]["task"];
+		let contactInput =  document.forms["toDoForm"]["contact"];
+		let projInput =  document.forms["toDoForm"]["project"];
+		let sDateInput = document.forms["toDoForm"]["sdate"];
+		let eDateInput =  document.forms["toDoForm"]["edate"];
+		let statusInput =  document.forms["toDoForm"]["status"];
+
+		var formObj = new Object();
+		formObj.name =  nameInput.value;
+		formObj.email = emailInput.value;
+		formObj.task = taskInput.value;
+		formObj.mobile = contactInput.value;
+		formObj.project = projInput.value;
+		formObj.startdate = sDateInput.value;
+		formObj.enddate = eDateInput.value;
+		formObj.status = statusInput.value;
+
+		if(nameInput.checkValidity() &&emailInput.checkValidity() && taskInput.checkValidity()&& projInput.checkValidity()  && contactInput.checkValidity() && sDateInput.checkValidity()&& eDateInput.checkValidity()&& statusInput.value !="")  {
+			isValid =  true;
+			if(selectedRec.hasOwnProperty("id") && selectedRec.id>=0){		
+				todoArr[selectedRec.id] = {...selectedRec,...formObj};	
+				selectedRec = {};	
+
+			}else{
+			formObj.id=  todoArr.length;
+			todoArr.push(formObj)
+			}		
+			 addDataToTable(todoArr);	
+			resetFormDate();
+			return true;
+		}	
+
+		if(nameInput.checkValidity()){
+			nameInput.style="border:1px solid black;"
+		}
+		else if(!nameInput.checkValidity()){
+			nameInput.style="border:2px solid red;"
+		}
+		if(emailInput.checkValidity()){
+			emailInput.style="border:1px solid black;"
+		}
+		else if(!emailInput.checkValidity()){
+			emailInput.style="border:2px solid red;"
+		}
+		if(taskInput.checkValidity()){
+			taskInput.style="border:1px solid black;"
+		}
+		else if(!taskInput.checkValidity()){
+			taskInput.style="border:2px solid red;"
+		}
+		if(projInput.checkValidity()){
+			projInput.style="border:1px solid black;"
+		}
+		else if(!projInput.checkValidity()){
+			projInput.style="border:2px solid red;"
+		}
+		if(contactInput.checkValidity() && typeof contactInput.checkValidity() == "number"){
+			contactInput.style="border:1px solid balck;"
+		}
+		else if(!contactInput.checkValidity()){
+			contactInput.style="border:2px solid red;"
+		}
+		if(sDateInput.checkValidity()){
+			sDateInput.style="border:1px solid black;"
+		}
+		else if(!sDateInput.checkValidity()){
+			sDateInput.style="border:2px solid red;"
+		}
+		if(eDateInput.checkValidity()){
+			eDateInput.style="border:1px solid black;"
+		}
+		else if(!eDateInput.checkValidity()){
+			eDateInput.style="border:2px solid red;"
+		}
+			
+	}
+
+	function addDataToTable(formObjArr){
+		document.getElementById('table-body').innerHTML = "";
+		formObjArr.forEach(function(formObj){
+		let toDoTab = document.getElementById('table-body');
+        let rowCnt = toDoTab.rows.length;   // table row count.
+        let tr = toDoTab.insertRow(rowCnt);       
+        let snoCell = tr.insertCell(0);
+        	snoCell.innerHTML= rowCnt+1;
+      	let nameCell = tr.insertCell(1);
+        	nameCell.innerHTML= formObj.name;
+      	let emailCell = tr.insertCell(2);
+        	emailCell.innerHTML= formObj.email;
+       	let mobileCell = tr.insertCell(3);
+        	mobileCell.innerHTML= formObj.mobile; 
+        let projCell = tr.insertCell(4);
+        	projCell.innerHTML= formObj.project;
+        let statusCell = tr.insertCell(5);
+        	statusCell.innerHTML= formObj.status;
+        let taskCell = tr.insertCell(6);
+        	taskCell.innerHTML= formObj.task;
+        let sDateCell = tr.insertCell(7);
+        	sDateCell.innerHTML= formObj.startdate;
+        let eDateCell = tr.insertCell(8);
+        	eDateCell.innerHTML= formObj.enddate;
+        let deleteCell = tr.insertCell(9);
+        deleteCell.innerHTML= "<button id='"+rowCnt+"' onclick=onEdit(this,event)>Edit</button>   <button id='"+rowCnt+"'onclick=removeTableRow(this,event)>Delete </button>";           
+    });
+	}
+
+	function removeTableRow(btn,e){		
+		e.preventDefault();
+		// var removeRecord =  window.conform("DO you really want to delete the record"  );
+		// alert("yes or no");
+		todoArr.splice(e.target.id,1);
+		addDataToTable(todoArr);	
+      	return false;
+   	}
+
+
+
+function resetFormDate(e) {   		
+   	document.getElementById("Name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("contact").value = "";
+    document.getElementById("project").value = "";
+    document.getElementById("task").value = "";
+    document.getElementById("startdate").value = "";
+    document.getElementById("enddate").value = "";  
+}
+
+function onEdit(btn,event) {
+    selectedRow = btn.parentElement.parentElement;
+    var selectedRowIndex = Number(selectedRow.cells[0].innerHTML)-1;
+    selectedRec = todoArr[selectedRowIndex];
+    document.getElementById("Name").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("email").value = selectedRow.cells[2].innerHTML;	
+    document.getElementById("contact").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("project").value = selectedRow.cells[4].innerHTML;
+    document.getElementById("task").value = selectedRow.cells[6].innerHTML;   
+    document.getElementById("startdate").value = selectedRow.cells[7].innerHTML;
+    document.getElementById("enddate").value = selectedRow.cells[8].innerHTML;
+}
+</script>
+</body>
+</html>

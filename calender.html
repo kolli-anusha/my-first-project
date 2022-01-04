@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>calender</title>
+    <!-- <link href="css/style.css"rel="stylesheet"/> -->
+    <style>
+        table {
+            border-collapse: collapse;
+            background: white;
+            color: black;
+        }
+          
+        th,
+        td {
+            font-weight: bold;
+        }
+    </style>
+</head>
+  
+<body>
+    <!-- Here we are using attributes like
+        cellspacing and cellpadding -->
+  
+    <!-- The purpose of the cellpadding is 
+        the space that a user want between
+        the border of cell and its contents-->
+  
+    <!-- cellspacing is used to specify the 
+        space between the cell and its contents -->
+    <h2 align="center" style="color: orange;">
+        January 2021
+    </h2>
+    <br />
+  
+    <table bgcolor="lightgrey" align="center" 
+        cellspacing="21" cellpadding="21">
+  
+        <!-- The tr tag is used to enter 
+            rows in the table -->
+  
+        <!-- It is used to give the heading to the
+            table. We can give the heading to the 
+            top and bottom of the table -->
+  
+        <caption align="top">
+            <!-- Here we have used the attribute 
+                that is style and we have colored 
+                the sentence to make it better 
+                depending on the web page-->
+        </caption>
+  
+        <!-- Here th stands for the heading of the
+            table that comes in the first row-->
+  
+        <!-- The text in this table header tag will 
+            appear as bold and is center aligned-->
+  
+        <thead>
+            <tr>
+                <!-- Here we have applied inline style 
+                     to make it more attractive-->
+                <th style="color: white; background: purple;">
+                    Sun</th>
+                <th style="color: white; background: purple;">
+                    Mon</th>
+                <th style="color: white; background: purple;">
+                    Tue</th>
+                <th style="color: white; background: purple;">
+                    Wed</th>
+                <th style="color: white; background: purple;">
+                    Thu</th>
+                <th style="color: white; background: purple;">
+                    Fri</th>
+                <th style="color: white; background: purple;">
+                    Sat</th>
+            </tr>
+        </thead>
+  
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <!-- <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td> -->
+            </tr>
+        </tbody>
+    </table>
+
+    <style>
+        * {box-sizing: border-box;}
+        ul {list-style-type: none;}
+        body {font-family: Verdana, sans-serif;}
+        
+        .month {
+          padding: 70px 25px;
+          width: 100%;
+          background: #1abc9c;
+          text-align: center;
+        }
+        
+        .month ul {
+          margin: 0;
+          padding: 0;
+        }
+        
+        .month ul li {
+          color: white;
+          font-size: 20px;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+        }
+        
+        .month .prev {
+          float: left;
+          padding-top: 10px;
+        }
+        
+        .month .next {
+          float: right;
+          padding-top: 10px;
+        }
+        
+        .weekdays {
+          margin: 0;
+          padding: 10px 0;
+          background-color: #ddd;
+         
+        }
+        
+        .weekdays li {
+          display: inline-block;
+          width: 13.6%;
+          color: #666;
+          text-align: center;
+          
+        }
+        
+        .days {
+          padding: 10px 0;
+          background: #eee;
+          margin: 0;
+        }
+        .days li:hover{
+            background-color: maroon;
+            border-radius: 100%;
+          color:white;
+        
+        }
+        
+        .days li {
+          list-style-type: none;
+          display: inline-block;
+          width: 13.6%;
+          text-align: center;
+          margin-bottom: 5px;
+          font-size:12px;
+          color: #777;
+        }
+        
+        .days li .active {
+          padding: 5px;
+          background: #1abc9c;
+          color: white !important
+        }
+        </style>
+        <body>
+
+            <h1 align="center">CSS Calendar</h1>
+            
+            <div class="month">      
+              <ul>
+                <li class="prev">&#10094;</li>
+                
+                <li class="next">&#10095;</li>
+                <li> august 
+          </li>
+                
+                  <span style="font-size:15px">2021</span>
+                </li>
+              </ul>
+            </div>
+            
+            <ul class="weekdays">
+              <li>Mo</li>
+              <li>Tu</li>
+              <li>We</li>
+              <li>Th</li>
+              <li>Fr</li>
+              <li>Sa</li>
+              <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li><span class="active">10</span></li>
+              <li>11</li>
+              <li>12</li>
+              <li>13</li>
+              <li>14</li>
+              <li>15</li>
+              <li>16</li>
+              <li>17</li>
+              <li>18</li>
+              <li>19</li>
+              <li>20</li>
+              <li>21</li>
+              <li>22</li>
+              <li>23</li>
+              <li>24</li>
+              <li>25</li>
+              <li>26</li>
+              <li>27</li>
+              <li>28</li>
+              <li>29</li>
+              <li>30</li>
+              <li>31</li>
+            </ul>
+            
+            </body>
+            </html>
+            

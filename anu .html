@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+             Raju &#25987
+        </title>
+    <!-- <link href="css/style.css"rel="stylesheet"/> -->
+   
+    <script src="JS/stript.js"></script>
+     <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script> 
+   <!--<meta name="viewport"content="width-device-width,initial-scale=1.0">--> 
+  
+    </head>
+    <body onresize="myFunction()">
+       
+        <section class="container mb-5">
+            <div class="container mt-3">
+             <h3> Form validation</h3>
+             <p>Try to submit the form</p>
+        <form action="" class="needs-validation">
+            <div class="mb-3 mt-3">
+                <label for="uname" class="form-label">user name:</label>
+                <input type="text" class="form-control" id="uname" placeholder="Enter username" class="uname" required>
+                <div class="valid-feedback">valid.</div>
+                <div class="invalid-feedback">please fill out the filed.</div>
+            </div>
+            <div class="mb-3">
+             <label for="pwd" class="form-label">password:</label>
+             <input type="password" class="form-control" id="pwd" placeholder="Enter password" class="pwd" required>
+             <div class="valid-feedback">valid.</div>
+             <div class="invalid-feedback">please fill out the filed.</div>
+         </div>
+         <div class="form-check mb-3 ">
+             <label for="form-check-label" for="mycheck"> I agree on blabla.</label>
+             <input class="form-check-input" type="checkbox" id="mycheck" name="remember" required>
+             <div class="valid-feedback">valid.</div>
+             <div class="invalid-feedback">check this checkbox to continue.</div>
+         </div>
+         <div class="d-flex">
+             <div class="form-check  ">
+                 <label class="form-check-label" for="check 1">option1</label>
+                 <input class="form-check-input" type="checkbox" id="check1" name="optiom1" value="something">
+                 
+             </div>
+             <div class="form-check  ">
+                 <label class="form-check-label" for="check 2">option2</label>
+                 <input class="form-check-input" type="checkbox" id="check2" name="optiom2" value="something">
+                 
+             </div>
+             <div class="form-check  ">
+                 <label class="form-check-label">option3</label>
+                 <input class="form-check-input" type="checkbox" disabled>
+                 
+             </div>
+             <div class="form-check form-switch ">
+                 <label for="form-check-label" for="myswitch">Dark mode</label>
+                 <input class="form-check-input" type="checkbox" id="myswitch" name="darkmode" value="yes" checked>
+                 
+             </div> 
+         </div>
+         <div class="form-check form-check-inline">
+           <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
+           <label class="form-check-label" for="inlineRadioDefault">Default radio</label>
+         </div>
+         <div class="form-check form-check-inline">
+           <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioChecked" checked="">
+           <label class="form-check-label" for="inlineRadioChecked">Default checked radio</label>
+         </div>
+         <div>
+         <label for="formRange" class="form-label">Example range</label>
+     <input type="range" class="form-range" min="0" max="5" step="0.5" id="formRange">
+     </div>
+     <label for="colorInput" class="form-label">Color picker</label>
+     <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
+         <button type="submit" onclick="formSubmitClick()" class="btn btn-primary mt-2">submit</button>
+        
+       
+        </form>
+            </div>
+
+            <p id="string-search-para" onclick="getNumberofWords(event)">anusha jyothi anusha fkdsajflkds anusha keerthi anusha 
+                fjdsalkfjslkre rani jflkdsajflksad anu fajdlkfsa padma kjfldsjfdsl priya  anusha aswini</p>
+           </section>
+
+           <section>
+            <div>
+                <input id="display" type="text" />
+            </div>
+            <div>
+                <button id="one" onclick="getBtnvalue(this,event)">1</button>
+                <button id="two" onclick="getBtnvalue(this,event)">2</button>
+            </div>
+            <div>
+                <button id="add">+</button>
+                <button id="equalto">=</button>
+                <div>
+                    <input type="text" id="result" />
+                </div>
+            </div>
+        </section>
+        
+
+   
+          <div onclick="anu(event)">nskdhrdwqf</div>
+          
+      <div>
+          Enter your name: <input type="text" id="fname" onblur="myFunction()">
+          <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+          <form>
+            Choose which browser you prefer:
+          <select id="browsers" onchange="preferedBrowser()">
+            <option value="Chrome">Chrome</option>
+            <option value="Internet Explorer">Internet Explorer</option>
+            <option value="Firefox">Firefox</option>
+          </select>
+          </form>
+        </div>
+
+   <p id="demo">anusha</p>
+        <button type="button" onclick="displayDate()">Display Date</button>
+
+        <p  ondblclick="myFunction()">Doubleclick this paragraph to trigger a function.</p>
+        
+        <p id="miss"></p>
+
+        <!-- <img src="C:\Users\home\Desktop\Images\swamy.jpg"height="50px"width="50px" onload="loadimg()"> -->
+
+            <p>Try to resize the browser window.</p>
+            
+            <p id="exa"></p>
+            
+            <p>Note: this example will not work properly in IE8 and earlier. IE8 and earlier do not support the outerWidth/outerHeight propery of the window object.</p>
+            <button onclick="windowopen()">open</button>
+            <button onclick="windowclose()">close</button>
+  
+            <input id="Hello" type="text"/>
+        <button id="fun1" onclick="btnHello(this)">Hello</button>
+
+        <!-- Geo location -->
+<div style="clear: both;"> Geo location :
+    <button onclick="findGeoLocation()"> Find</button>
+    <div id="geoIdentifier" style="height:300px;width:300px; border:1px solid;"></div>
+    </div>
+
+    <button onclick="openWindow()">Open Window</button>
+<button onclick="closeWindow()">Close Window</button>
+
+
+        
+<section>
+    <h2>Web worker Example</h2>
+<output id="result"></output>
+
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+</section>
+
+<script>
+let w;
+function startWorker() {
+  if(typeof(w) == "undefined") {
+    w = new Worker("JS/webworkerexample.js");
+  }
+  w.onmessage = function(event) {
+     document.getElementById("result").innerHTML = event.data;
+    //console.log( event.data);
+  };
+}
+
+function stopWorker() { 
+  w.terminate();
+  w = undefined;
+}
+</script>
+ 
+       <!-- drop and drag example  -->
+       <h2>Drag and Drop Example</h2>
+       <div style="margin-top: 50px;">
+           <img id="draggableImg1" draggable = true src="C:\Users\home\Desktop\Images\swamy.jpg"width="150px" height="150px" ondragstart="dragStart(event)"/>
+           <img id="draggableImg" draggable = true src="C:\Users\home\Desktop\Images\hand.jpeg" width="100px" height="100px" ondragstart="dragStart(event)"/>
+           <img id="draggableImg2" draggable = true src="C:\Users\home\Desktop\Images\Radha-krishna.jpg" width="100px" height="100px" ondragstart="dragStart(event)"/>
+           <div style="height: 500px; width:500px;  float:left; border: 1px solid black;" id="drop-target-1" ondrop="dropCompleted(event)"  ondragover="dropallowed(event)">
+      
+        </div> 
+        </div>
+
+
+        
+
+           </body>
+           </html>
+           
